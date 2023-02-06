@@ -3,29 +3,34 @@ import './App.css';
 
 function App() {
 
+  var a = [];
+
+
   function GenerateKanjis(){
+
   const [data, setData] = useState([]);
   const options = {
     method: 'GET',
     headers: {
-      'X-RapidAPI-Key': '399150df6cmsh35f5184d12a3c5dp112fc8jsn0d41cd98cdc1',
+      'X-RapidAPI-Key': 'dd58bb6da4msh51d1d4848d5ab66p140190jsnbd0fcf951588',
       'X-RapidAPI-Host': 'kanjialive-api.p.rapidapi.com'
     }
   }
   useEffect(() => {
 
-  fetch('https://kanjialive-api.p.rapidapi.com/api/public/kanji/all', options)
+  //fetch('https://kanjialive-api.p.rapidapi.com/api/public/kanji/all', options)
+  fetch("https://kanjiapi.dev/v1/kanji/蛍")
     .then(response => response.json())
     .then(json => {
+      a.push(json);
       console.log("json", json)
       setData(json)
-    }).catch(err => console.error(err));
+    }).catch(err => console.error(err))
+    .then(response => response?.forEach(b => console.log(b.kanji)))
 
     }, [])
 
-    data?map(item => {
-      return {item}
-    })
+    
   
 
 
@@ -44,7 +49,7 @@ function App() {
         const options = {
           method: 'GET',
           headers: {
-            'X-RapidAPI-Key': '399150df6cmsh35f5184d12a3c5dp112fc8jsn0d41cd98cdc1',
+            'X-RapidAPI-Key': 'api-key',
             'X-RapidAPI-Host': 'kanjialive-api.p.rapidapi.com'
           }
         };
@@ -75,6 +80,7 @@ function App() {
     return (
       <div className="App">
         <h2>welcome</h2>
+        {a.map ( d => <div>{d}</div>)}
         { GenerateKanjis()}
       </div>
   )
