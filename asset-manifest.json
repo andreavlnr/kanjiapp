@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/kanjipp/static/css/main.073c9b0a.css",
+    "main.js": "/kanjipp/static/js/main.350e4a78.js",
+    "index.html": "/kanjipp/index.html",
+    "main.073c9b0a.css.map": "/kanjipp/static/css/main.073c9b0a.css.map",
+    "main.350e4a78.js.map": "/kanjipp/static/js/main.350e4a78.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.350e4a78.js"
+  ]
+}
