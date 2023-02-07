@@ -3,7 +3,7 @@ import './App.css';
 
 function App() {
 
-  var a = [];
+  /* var a = [];
 
 
   function GenerateKanjis(){
@@ -75,13 +75,14 @@ function App() {
         })
     return "no data"
   }
-
+  //returnbe: {a.map ( d => <div>{d}</div>)}
+        { GenerateKanjis()}
+ */
 
     return (
       <div className="App">
         <h2>welcome</h2>
-        {a.map ( d => <div>{d}</div>)}
-        { GenerateKanjis()}
+        
       </div>
   )
   }
