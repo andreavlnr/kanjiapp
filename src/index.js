@@ -21,17 +21,30 @@ const callRestApi = async () => {
   return JSON.stringify(jsonResponse);
 };
 
+
+
 function RenderResult() {
   const [apiResponse, setApiResponse] = useState("* now loading *");
 
   useEffect(() => {
-    callRestApi().then((result) => setApiResponse(result));
+    callRestApi().then((response) => setApiResponse(response));
   }, []);
+
+  if (!apiResponse || apiResponse.length === 0) {
+    return <div>Loading...</div>;
+  }
+
+  const kanjiresult = apiResponse.kanji[0];
+
+  if (!kanjiresult) {
+    console.log('Data is null or undefined')
+    return <div>No kanji found.</div>;
+  }
 
   return (
     <div>
-      <h1>React App</h1>
-      <p>{apiResponse}</p>
+      <h1>Kanji information</h1>
+      <p>{kanjiresult.kanji.meaning.english}</p>
     </div>
   );
 }
